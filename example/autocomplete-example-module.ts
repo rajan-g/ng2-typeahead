@@ -3,11 +3,11 @@ import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {PaginationDirective} from '../directives/pagination.directive';
+import { TypeHeadModule } from '../src/typehead.module';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [AppComponent, PaginationDirective],
+  imports:      [ BrowserModule, FormsModule, TypeHeadModule ],
+  declarations: [AppComponent],
   bootstrap:    [ AppComponent ]
 })
-export class PaginationModule { }
+export class AutoCompleteExampleModule { }

@@ -2,47 +2,35 @@
  * @author RAJAN G
  */
 
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+//import { AutoComplete, IView } from '../directives/autocomplete';
 
 @Component({
     selector: 'my-app',
-    template: `test
-<div *ngIf="totalItems >0">
-<ng-pagination [totalItems]="totalItems" [(ngModel)]="currentPage" [maxSize]="maxSize" (pageChanged)="pageChanged($event)"
-previous-text="&lsaquo;" next-text="&rsaquo;" first-text="First" last-text="Last"></ng-pagination>
-</div>
-<br>
-<br>
-<br>\
-<div *ngIf="totalItems2 >0">
-<ng-pagination [totalItems]="totalItems2" [(ngModel)]="currentPage2" [maxSize]="maxSize2" (pageChanged)="pageChanged2($event)"
-previous-text="&lsaquo;" next-text="&rsaquo;"></ng-pagination>
-</div>
+    template: `
+    <div style="width:200px;padding:10px"> 
+   
+    {{stateList}}
+    <typehead  [(ngModel)]="stateList" [typeHeadSetup]="typeHeadSetup"></typehead>
+    <div>test</div>
+    </div>
+    <!--<html-outlet [html]="model.template"></html-outlet>
+    <html-outlet [html]="model.template"></html-outlet>
+    <html-outlet [html]="model.template"></html-outlet>
+    <html-outlet [html]="model.template"></html-outlet>
+    <typehead [(ngModel)]="stateList" [typeHeadSetup]="typeHeadSetup"></typehead>-->
 `,
 })
 export class AppComponent {
-  public currentPage:number = 1;
-  public totalItems:number = 12;
-  public maxSize:number = 3;
-   public currentPage2:number = 1;
-  public totalItems2:number = 200;
-  public maxSize2:number = 5;
-    constructor() {
-    }  
-  public setPage(pageNo:number):void {
-    this.currentPage = pageNo;    
-  };
-
-  public pageChanged(event:any):void {
-    console.log('Number items per page: ' + event.itemsPerPage);
-  };
- 
-   
-  public setPage2(pageNo:number):void {
-    this.currentPage = pageNo;    
-  };
-
-  public pageChanged2(event:any):void {
-    console.log('Number items per page: ' + event.itemsPerPage);
-  };
+    typeHeadSetup = {
+        customTemplate: '<div>test {{item.name}}</div>',
+//    timeDelay: number;
+    type: 'static',
+    textPrperty: 'name',
+    valueProperty: 'abbreviation',
+    searchProperty: 'name',
+//    asynchDataCall: any;
+//    staticDataFilterkey: any;
+    staticData: [{"name":"Alabama","abbreviation":"AL"},{"name":"Alaska","abbreviation":"AK"},{"name":"AmericanSamoa","abbreviation":"AS"},{"name":"Arizona","abbreviation":"AZ"},{"name":"Arkansas","abbreviation":"AR"},{"name":"California","abbreviation":"CA"},{"name":"Colorado","abbreviation":"CO"},{"name":"Connecticut","abbreviation":"CT"},{"name":"Delaware","abbreviation":"DE"},{"name":"DistrictOfColumbia","abbreviation":"DC"},{"name":"FederatedStatesOfMicronesia","abbreviation":"FM"},{"name":"Florida","abbreviation":"FL"},{"name":"Georgia","abbreviation":"GA"},{"name":"Guam","abbreviation":"GU"},{"name":"Hawaii","abbreviation":"HI"},{"name":"Idaho","abbreviation":"ID"},{"name":"Illinois","abbreviation":"IL"},{"name":"Indiana","abbreviation":"IN"},{"name":"Iowa","abbreviation":"IA"},{"name":"Kansas","abbreviation":"KS"},{"name":"Kentucky","abbreviation":"KY"},{"name":"Louisiana","abbreviation":"LA"},{"name":"Maine","abbreviation":"ME"},{"name":"MarshallIslands","abbreviation":"MH"},{"name":"Maryland","abbreviation":"MD"},{"name":"Massachusetts","abbreviation":"MA"},{"name":"Michigan","abbreviation":"MI"},{"name":"Minnesota","abbreviation":"MN"},{"name":"Mississippi","abbreviation":"MS"},{"name":"Missouri","abbreviation":"MO"},{"name":"Montana","abbreviation":"MT"},{"name":"Nebraska","abbreviation":"NE"},{"name":"Nevada","abbreviation":"NV"},{"name":"NewHampshire","abbreviation":"NH"},{"name":"NewJersey","abbreviation":"NJ"},{"name":"NewMexico","abbreviation":"NM"},{"name":"NewYork","abbreviation":"NY"},{"name":"NorthCarolina","abbreviation":"NC"},{"name":"NorthDakota","abbreviation":"ND"},{"name":"NorthernMarianaIslands","abbreviation":"MP"},{"name":"Ohio","abbreviation":"OH"},{"name":"Oklahoma","abbreviation":"OK"},{"name":"Oregon","abbreviation":"OR"},{"name":"Palau","abbreviation":"PW"},{"name":"Pennsylvania","abbreviation":"PA"},{"name":"PuertoRico","abbreviation":"PR"},{"name":"RhodeIsland","abbreviation":"RI"},{"name":"SouthCarolina","abbreviation":"SC"},{"name":"SouthDakota","abbreviation":"SD"},{"name":"Tennessee","abbreviation":"TN"},{"name":"Texas","abbreviation":"TX"},{"name":"Utah","abbreviation":"UT"},{"name":"Vermont","abbreviation":"VT"},{"name":"VirginIslands","abbreviation":"VI"},{"name":"Virginia","abbreviation":"VA"},{"name":"Washington","abbreviation":"WA"},{"name":"WestVirginia","abbreviation":"WV"},{"name":"Wisconsin","abbreviation":"WI"},{"name":"Wyoming","abbreviation":"WY"}]
+    }
 }

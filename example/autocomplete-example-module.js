@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', './app.component', '../directives/pagination.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', './app.component', '../src/typehead.module'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, platform_browser_1, app_component_1, pagination_directive_1;
-    var PaginationModule;
+    var core_1, forms_1, platform_browser_1, app_component_1, typehead_module_1;
+    var AutoCompleteExampleModule;
     return {
         setters:[
             function (core_1_1) {
@@ -26,25 +26,25 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
             function (app_component_1_1) {
                 app_component_1 = app_component_1_1;
             },
-            function (pagination_directive_1_1) {
-                pagination_directive_1 = pagination_directive_1_1;
+            function (typehead_module_1_1) {
+                typehead_module_1 = typehead_module_1_1;
             }],
         execute: function() {
-            PaginationModule = (function () {
-                function PaginationModule() {
+            AutoCompleteExampleModule = (function () {
+                function AutoCompleteExampleModule() {
                 }
-                PaginationModule = __decorate([
+                AutoCompleteExampleModule = __decorate([
                     core_1.NgModule({
-                        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-                        declarations: [app_component_1.AppComponent, pagination_directive_1.PaginationDirective],
+                        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, typehead_module_1.TypeHeadModule],
+                        declarations: [app_component_1.AppComponent],
                         bootstrap: [app_component_1.AppComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], PaginationModule);
-                return PaginationModule;
+                ], AutoCompleteExampleModule);
+                return AutoCompleteExampleModule;
             }());
-            exports_1("PaginationModule", PaginationModule);
+            exports_1("AutoCompleteExampleModule", AutoCompleteExampleModule);
         }
     }
 });
-//# sourceMappingURL=pagination-module.js.map
+//# sourceMappingURL=autocomplete-example-module.js.map
