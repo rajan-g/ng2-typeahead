@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var PropertyHandler;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             PropertyHandler = (function () {
                 function PropertyHandler() {
                 }
@@ -88,6 +88,6 @@ System.register([], function(exports_1, context_1) {
             }());
             exports_1("PropertyHandler", PropertyHandler);
         }
-    }
+    };
 });
 //# sourceMappingURL=PropertyHandler.js.map

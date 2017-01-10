@@ -54,7 +54,7 @@ export class HtmlOutlet {
     createComponentFactory(this.compiler, compMetadata)
       .then(factory => {
         const injector = ReflectiveInjector.fromResolvedProviders([], this.vcRef.parentInjector);   
-        this.cmpRef = this.vcRef.createComponent(factory, 0, injector, [this.itemRef]);
+        this.cmpRef = this.vcRef.createComponent(factory, 0, injector, []);
         this.cmpRef.instance['item'] = this.item;
       });
   }
