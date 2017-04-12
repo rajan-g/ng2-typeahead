@@ -1,7 +1,7 @@
 {
-  "name": "ng2-typeahead",
-  "version": "2.0.1",
-  "description": "ng2-typeahead is angular2 ng2-typeahead module. It is support static and dynamic data for auto complete",
+  "name": "ng2-bootstrap-typeahead",
+  "version": "2.0.2",
+  "description": "ng2-bootstrap-typeahead is angular2 ng2-bootstrap-typeahead module. It is support static and dynamic data for auto complete",
   "main": "index.js",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
