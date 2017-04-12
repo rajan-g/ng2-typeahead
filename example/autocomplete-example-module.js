@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/forms", "@angular/platform-browser", "./app.component", "../src/typehead.module"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/forms", "@angular/platform-browser", "./app.component", "../src/typeahead.module"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, forms_1, platform_browser_1, app_component_1, typehead_module_1, AutoCompleteExampleModule;
+    var core_1, forms_1, platform_browser_1, app_component_1, typeahead_module_1, AutoCompleteExampleModule;
     return {
         setters: [
             function (core_1_1) {
@@ -25,8 +25,8 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
             function (app_component_1_1) {
                 app_component_1 = app_component_1_1;
             },
-            function (typehead_module_1_1) {
-                typehead_module_1 = typehead_module_1_1;
+            function (typeahead_module_1_1) {
+                typeahead_module_1 = typeahead_module_1_1;
             }
         ],
         execute: function () {
@@ -37,7 +37,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
             }());
             AutoCompleteExampleModule = __decorate([
                 core_1.NgModule({
-                    imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, typehead_module_1.TypeHeadModule],
+                    imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, typeahead_module_1.TypeAheadModule],
                     declarations: [app_component_1.AppComponent],
                     bootstrap: [app_component_1.AppComponent]
                 }),

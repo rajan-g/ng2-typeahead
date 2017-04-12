@@ -3,10 +3,10 @@ import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import { TypeHeadModule } from '../src/typehead.module';
+import { TypeAheadModule } from '../src/typeahead.module';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, TypeHeadModule ],
+  imports:      [ BrowserModule, FormsModule, TypeAheadModule ],
   declarations: [AppComponent],
   bootstrap:    [ AppComponent ]
 })

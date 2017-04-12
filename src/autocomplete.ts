@@ -14,7 +14,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   multi: true
 };
 @Component({
-  selector: 'typehead[ngModel][typeHeadSetup]',
+  selector: 'typeahead[ngModel][typeHeadSetup]',
   encapsulation: ViewEncapsulation.None,
   providers: [NgModel, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR],
   template: `

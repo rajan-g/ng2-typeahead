@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template: `
     <div style="width:300px;padding:10px"> 
-    <typehead  [(ngModel)]="stateList" [typeHeadSetup]="typeHeadSetup"></typehead>
+    <typeahead  [(ngModel)]="stateList" [typeHeadSetup]="typeHeadSetup"></typeahead>
     <div></div>
     </div>
     <!--<html-outlet [html]="model.template"></html-outlet>

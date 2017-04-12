@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, platform_browser_1, forms_1, PropertyHandler_1, autocomplete_1, html_outlet_1, TypeHeadModule, TypeHeadModule_1;
+    var core_1, platform_browser_1, forms_1, PropertyHandler_1, autocomplete_1, html_outlet_1, TypeAheadModule, TypeAheadModule_1;
     return {
         setters: [
             function (core_1_1) {
@@ -33,13 +33,13 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
             }
         ],
         execute: function () {
-            TypeHeadModule = TypeHeadModule_1 = (function () {
-                function TypeHeadModule() {
+            TypeAheadModule = TypeAheadModule_1 = (function () {
+                function TypeAheadModule() {
                 }
-                TypeHeadModule.forRoot = function () { return { ngModule: TypeHeadModule_1, providers: [PropertyHandler_1.PropertyHandler] }; };
-                return TypeHeadModule;
+                TypeAheadModule.forRoot = function () { return { ngModule: TypeAheadModule_1, providers: [PropertyHandler_1.PropertyHandler] }; };
+                return TypeAheadModule;
             }());
-            TypeHeadModule = TypeHeadModule_1 = __decorate([
+            TypeAheadModule = TypeAheadModule_1 = __decorate([
                 core_1.NgModule({
                     imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
                     declarations: [autocomplete_1.AutoComplete, html_outlet_1.HtmlOutlet],
@@ -47,9 +47,9 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
                     providers: [PropertyHandler_1.PropertyHandler]
                 }),
                 __metadata("design:paramtypes", [])
-            ], TypeHeadModule);
-            exports_1("TypeHeadModule", TypeHeadModule);
+            ], TypeAheadModule);
+            exports_1("TypeAheadModule", TypeAheadModule);
         }
     };
 });
-//# sourceMappingURL=typehead.module.js.map
+//# sourceMappingURL=typeahead.module.js.map

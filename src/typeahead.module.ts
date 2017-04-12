@@ -11,6 +11,6 @@ import { HtmlOutlet} from '../src/html-outlet';
   exports: [ AutoComplete, HtmlOutlet],
   providers:[PropertyHandler]
 })
-export class TypeHeadModule {
-  static forRoot(): ModuleWithProviders { return {ngModule: TypeHeadModule, providers: [PropertyHandler]}; }
+export class TypeAheadModule {
+  static forRoot(): ModuleWithProviders { return {ngModule: TypeAheadModule, providers: [PropertyHandler]}; }
 }

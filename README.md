@@ -1,5 +1,5 @@
-# ng2-typehead
-ng2-typehead is angular2 ng2-typehead module. It is support static and dynamic data for auto complete
+# ng2-typeahead
+ng2-typeahead is angular2 ng2-typehead module. It is support static and dynamic data for auto complete
 
 The sources for this package are in (https://github.com/rajan-g/ng2-typehead.git) repo. Please file issues and pull requests against that repo.
 ### Demo output
@@ -16,10 +16,10 @@ The sources for this package are in (https://github.com/rajan-g/ng2-typehead.git
   import { BrowserModule } from '@angular/platform-browser';
 
   import {AppComponent} from './app.component';
-  import { TypeHeadModule } from '../src/typehead.module';
+  import { TypeAheadModule } from '../src/typeahead.module';
 
   @NgModule({
-    imports:      [ BrowserModule, FormsModule, TypeHeadModule ],
+    imports:      [ BrowserModule, FormsModule, TypeAheadModule ],
     declarations: [AppComponent],
     bootstrap:    [ AppComponent ]
   })

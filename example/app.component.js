@@ -53,7 +53,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             AppComponent = __decorate([
                 core_1.Component({
                     selector: 'my-app',
-                    template: "\n    <div style=\"width:300px;padding:10px\"> \n    <typehead  [(ngModel)]=\"stateList\" [typeHeadSetup]=\"typeHeadSetup\"></typehead>\n    <div></div>\n    </div>\n    <!--<html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <typehead [(ngModel)]=\"stateList\" [typeHeadSetup]=\"typeHeadSetup\"></typehead>-->\n",
+                    template: "\n    <div style=\"width:300px;padding:10px\"> \n    <typeahead  [(ngModel)]=\"stateList\" [typeHeadSetup]=\"typeHeadSetup\"></typeahead>\n    <div></div>\n    </div>\n    <!--<html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <typehead [(ngModel)]=\"stateList\" [typeHeadSetup]=\"typeHeadSetup\"></typehead>-->\n",
                 }),
                 __metadata("design:paramtypes", [])
             ], AppComponent);
