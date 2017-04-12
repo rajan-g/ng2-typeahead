@@ -14,26 +14,26 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   multi: true
 };
 @Component({
-  selector: 'typeahead[ngModel][typeHeadSetup]',
+  selector: 'typeahead[ngModel][typeAheadSetup]',
   encapsulation: ViewEncapsulation.None,
   providers: [NgModel, CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR],
   template: `
    <span class="twitter-typeahead" style="position: relative;display: inline-block;" (click)="clickedInTypeHead($event)">
     <span [ngClass]="{'input-container': isDataLoading}">
-      <input type="text" [placeholder]="typeHeadSetup && typeHeadSetup.placeHolder ? typeHeadSetup.placeHolder : ''" class="ng2typehead typeahead tt-hint input-container" value="" (keyup)="onInputChange($event)" (focus)="enable= true;" [(ngModel)]="autoCompleteSelectedLabel" />\n\
+      <input type="text" [placeholder]="typeAheadSetup && typeAheadSetup.placeHolder ? typeAheadSetup.placeHolder : ''" class="ng2typehead typeahead tt-hint input-container" value="" (keyup)="onInputChange($event)" (focus)="enable= true;" [(ngModel)]="autoCompleteSelectedLabel" />\n\
     </span>
     <input type="text" style="display:none" [(ngModel)]="value" />
     <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Arial; font-size: 22px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;">{{autoCompleteSelectedLabel}}</pre>    
     <div class="tt-dropdown-menu1 tt-menu tt-open"  *ngIf="dataList && dataList.length && enable">
             <div  class="typehead-item1 tt-suggestion" *ngFor="let item of dataList"   [ngClass]="{'active': isActive(item)}">
-              <div class=" tt-cursor" *ngIf="!typeHeadSetup.customTemplate" (click)="selectedItem(item)">
-              <div *ngIf="!typeHeadSetup.isMultiselect">{{getLabel(item)}}{{typeHeadSetup.isMultiselect}}</div>
-              <div *ngIf="typeHeadSetup.isMultiselect">
+              <div class=" tt-cursor" *ngIf="!typeAheadSetup.customTemplate" (click)="selectedItem(item)">
+              <div *ngIf="!typeAheadSetup.isMultiselect">{{getLabel(item)}}{{typeAheadSetup.isMultiselect}}</div>
+              <div *ngIf="typeAheadSetup.isMultiselect">
                 <input type="checkbox" [checked]="isActive(item) ? true: null" value=""> 
                 {{getLabel(item)}}</div>
               </div>
-              <div  class=" tt-cursor" *ngIf="typeHeadSetup.customTemplate" (click)="selectedItem(item)">
-                <html-outlet [html]="typeHeadSetup.customTemplate" [item]="item"></html-outlet>
+              <div  class=" tt-cursor" *ngIf="typeAheadSetup.customTemplate" (click)="selectedItem(item)">
+                <html-outlet [html]="typeAheadSetup.customTemplate" [item]="item"></html-outlet>
               </div>
             </div>
     </div>
@@ -159,7 +159,7 @@ span.twitter-typeahead {
 `]
 })
 export class AutoComplete implements OnInit, ControlValueAccessor {
-  @Input('typeHeadSetup') typeHeadSetup: TypeHeadSetup;
+  @Input('typeAheadSetup') typeAheadSetup: TypeHeadSetup;
   dataList: Array<any>;
   type: string; //static or dynamic
   enable: boolean = false;
@@ -174,9 +174,9 @@ export class AutoComplete implements OnInit, ControlValueAccessor {
     private propertyHandler: PropertyHandler, private inputEle: ElementRef) {
   }
   ngOnInit() {
-    this.dataList = this.typeHeadSetup.staticData ? this.typeHeadSetup.staticData : [];
-    this.type = this.typeHeadSetup.type ? this.typeHeadSetup.type : 'dynamic';
-    if(this.typeHeadSetup.isMultiselect) {
+    this.dataList = this.typeAheadSetup.staticData ? this.typeAheadSetup.staticData : [];
+    this.type = this.typeAheadSetup.type ? this.typeAheadSetup.type : 'dynamic';
+    if(this.typeAheadSetup.isMultiselect) {
       window.addEventListener('click',($event) => {
         this.dataList = [];
       })
@@ -188,9 +188,9 @@ export class AutoComplete implements OnInit, ControlValueAccessor {
     this.isDataLoading = true;
     if (this.type === 'static') {
       this.dataList = [];
-      let serchPropList = this.typeHeadSetup.searchProperty.split(',');
-      if (this.typeHeadSetup.staticData && this.typeHeadSetup.staticData) {
-        this.dataList = this.typeHeadSetup.staticData.filter((item) => {
+      let serchPropList = this.typeAheadSetup.searchProperty.split(',');
+      if (this.typeAheadSetup.staticData && this.typeAheadSetup.staticData) {
+        this.dataList = this.typeAheadSetup.staticData.filter((item) => {
           let isValid = false;
           for (let i = 0; i < serchPropList.length; i++) {
             let originalValue = this.propertyHandler.getValueByProperty(item, serchPropList[i]);
@@ -203,35 +203,35 @@ export class AutoComplete implements OnInit, ControlValueAccessor {
         this.isDataLoading = false;
       }
     } else {
-      this.typeHeadSetup.asynchDataCall(value, (dataList: Array<any>) => {
+      this.typeAheadSetup.asynchDataCall(value, (dataList: Array<any>) => {
         this.dataList = dataList;
         this.isDataLoading = false;
       });
     }
   }
   getLabel(item: any) {
-    return this.propertyHandler.getValueByProperty(item, this.typeHeadSetup.textPrperty);
+    return this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.textPrperty);
   }
   selectedItem(item: any) {
     this.selectedObjectItem = item;
-    if (this.typeHeadSetup.isMultiselect) {
+    if (this.typeAheadSetup.isMultiselect) {
         if(!this.value) {
           this.value = [];
         }
          let isAvailable = this.isActive(item);
          if(isAvailable) {
-           let index = this.value.indexOf(this.propertyHandler.getValueByProperty(item, this.typeHeadSetup.valueProperty));
+           let index = this.value.indexOf(this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty));
            this.value.splice(index, 1);
          }else {
-         this.value.push(this.propertyHandler.getValueByProperty(item, this.typeHeadSetup.valueProperty));
+         this.value.push(this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty));
          }
       }else {
-        this.value = this.propertyHandler.getValueByProperty(item, this.typeHeadSetup.valueProperty);
-        this.autoCompleteSelectedLabel = this.propertyHandler.getValueByProperty(item, this.typeHeadSetup.textPrperty);
+        this.value = this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty);
+        this.autoCompleteSelectedLabel = this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.textPrperty);
          this.dataList = [];
       }
-    if (this.typeHeadSetup['onSelect']) {
-      this.typeHeadSetup['onSelect'](item);
+    if (this.typeAheadSetup['onSelect']) {
+      this.typeAheadSetup['onSelect'](item);
     }
   }
 
@@ -277,10 +277,10 @@ export class AutoComplete implements OnInit, ControlValueAccessor {
   }
   
   isActive(item:any) {
-    if (!this.typeHeadSetup.isMultiselect) {
+    if (!this.typeAheadSetup.isMultiselect) {
       return false;
     }
-    return this.value && this.value.indexOf(this.propertyHandler.getValueByProperty(item, this.typeHeadSetup.valueProperty)) !== -1;
+    return this.value && this.value.indexOf(this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty)) !== -1;
   }
 }
 

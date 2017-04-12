@@ -1,6 +1,6 @@
 {
   "name": "ng2-bootstrap-typeahead",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "ng2-bootstrap-typeahead is angular2 ng2-bootstrap-typeahead module. It is support static and dynamic data for auto complete",
   "main": "index.js",
   "scripts": {
