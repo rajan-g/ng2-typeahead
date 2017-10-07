@@ -171,7 +171,10 @@ export class AutoComplete implements OnInit, ControlValueAccessor {
   private onTouchedCallback: () => void = noop;
   private onChangeCallback: (_: any) => void = noop;
   constructor(
-    private propertyHandler: PropertyHandler, private inputEle: ElementRef) {
+    private propertyHandler: PropertyHandler,
+    private inputEle: ElementRef,
+    /*private model:NgModel*/) {
+      console.log(inputEle);      
   }
   ngOnInit() {
     this.dataList = this.typeAheadSetup.staticData ? this.typeAheadSetup.staticData : [];
@@ -181,10 +184,47 @@ export class AutoComplete implements OnInit, ControlValueAccessor {
         this.dataList = [];
       })
     }
+    setTimeout(()=> {
+      this.setDisplayText();
+    }, 100);
 //    this.enable = true;
+  }
+  setDisplayText() {
+    let valueType = typeof this.value;
+    if(valueType == "object") {          
+      if(Array.isArray(this.value)) {
+        this.autoCompleteSelectedLabel = '';
+        let textList = [];
+          for(let i=0; i< this.value.length; i++) {
+            let val = this.value[i];
+            if(this.typeAheadSetup.textPrperty) {
+              textList.push(this.value[i][this.typeAheadSetup.textPrperty]);   
+            }else {
+              textList.push(val);
+            }
+          }
+          this.autoCompleteSelectedLabel = textList.join(', ');
+          this.selectedObjectItem = this.value;
+      }else {
+        if(this.typeAheadSetup.textPrperty) {          
+          this.autoCompleteSelectedLabel = this.value[this.typeAheadSetup.textPrperty];   
+        }else {
+          this.autoCompleteSelectedLabel = this.value;
+        }
+      }
+    }else {
+        this.autoCompleteSelectedLabel = this.value;
+      }
+      this.selectedObjectItem = this.value;
   }
   onInputChange($event: any) {
     let value = $event.target.value;
+    if(this.typeAheadSetup.isMultiselect) {
+      if(value) {
+        let temps = value.split(',');
+        value = temps[temps.length-1];
+      }
+    }
     this.isDataLoading = true;
     if (this.type === 'static') {
       this.dataList = [];
@@ -223,11 +263,22 @@ export class AutoComplete implements OnInit, ControlValueAccessor {
            let index = this.value.indexOf(this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty));
            this.value.splice(index, 1);
          }else {
-         this.value.push(this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty));
+           if(this.typeAheadSetup.valueProperty) {
+            this.value.push(this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty));
+           }
+           else {
+             this.value.push(item);
+           }
          }
+         this.setDisplayText();
       }else {
-        this.value = this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty);
-        this.autoCompleteSelectedLabel = this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.textPrperty);
+        if(this.typeAheadSetup.valueProperty) {          
+          this.value = this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.valueProperty);
+        }else {
+          this.value = item;
+        }
+        this.setDisplayText();
+        // this.autoCompleteSelectedLabel = this.propertyHandler.getValueByProperty(item, this.typeAheadSetup.textPrperty);
          this.dataList = [];
       }
     if (this.typeAheadSetup['onSelect']) {
