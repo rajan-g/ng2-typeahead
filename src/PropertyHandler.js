@@ -5,15 +5,18 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            PropertyHandler = class PropertyHandler {
-                getValueByProperty(object, property) {
+            PropertyHandler = /** @class */ (function () {
+                function PropertyHandler() {
+                }
+                PropertyHandler.prototype.getValueByProperty = function (object, property) {
                     try {
-                        let notations = property.split('.');
-                        let current = JSON.parse(JSON.stringify(object));
+                        var notations = property.split('.');
+                        var current = JSON.parse(JSON.stringify(object));
                         if (notations && notations[0] == '') {
                             return current;
                         }
-                        for (let key of notations) {
+                        for (var _i = 0, notations_1 = notations; _i < notations_1.length; _i++) {
+                            var key = notations_1[_i];
                             if (!current[key]) {
                                 return null;
                             }
@@ -25,11 +28,11 @@ System.register([], function (exports_1, context_1) {
                         console.log(e);
                         return null;
                     }
-                }
-                setValueByProperty(object, property, value) {
+                };
+                PropertyHandler.prototype.setValueByProperty = function (object, property, value) {
                     try {
-                        let notations = property.split('.');
-                        let current = object;
+                        var notations = property.split('.');
+                        var current = object;
                         if (notations && notations[0] == '') {
                             object = value;
                             return;
@@ -38,7 +41,8 @@ System.register([], function (exports_1, context_1) {
                             object[property] = value;
                             return;
                         }
-                        for (let key of notations) {
+                        for (var _i = 0, notations_2 = notations; _i < notations_2.length; _i++) {
+                            var key = notations_2[_i];
                             current = current[key];
                         }
                         current = value;
@@ -48,11 +52,11 @@ System.register([], function (exports_1, context_1) {
                         console.log(e);
                     }
                     return;
-                }
-                buildPropertyWithValue(object, property, value) {
+                };
+                PropertyHandler.prototype.buildPropertyWithValue = function (object, property, value) {
                     try {
-                        let notations = property.split('.');
-                        let current = object;
+                        var notations = property.split('.');
+                        var current = object;
                         if (notations && notations[0] == '') {
                             object = value;
                             return object;
@@ -61,8 +65,8 @@ System.register([], function (exports_1, context_1) {
                             object[property] = value;
                             return object;
                         }
-                        for (let i = 0; i < notations.length; i++) {
-                            let key = notations[i];
+                        for (var i = 0; i < notations.length; i++) {
+                            var key = notations[i];
                             if (!current[key] && i < notations.length - 1) {
                                 current[key] = {};
                             }
@@ -79,8 +83,9 @@ System.register([], function (exports_1, context_1) {
                         console.log(e);
                     }
                     return;
-                }
-            };
+                };
+                return PropertyHandler;
+            }());
             exports_1("PropertyHandler", PropertyHandler);
         }
     };

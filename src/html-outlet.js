@@ -11,17 +11,23 @@ System.register(["@angular/core", "@angular/router", "@angular/common"], functio
     };
     var __moduleName = context_1 && context_1.id;
     function createComponentFactory(compiler, metadata) {
-        const cmpClass = class DynamicComponent {
-        };
-        const decoratedCmp = core_1.Component(metadata)(cmpClass);
-        let DynamicHtmlModule = class DynamicHtmlModule {
-        };
-        DynamicHtmlModule = __decorate([
-            core_1.NgModule({ imports: [common_1.CommonModule, router_1.RouterModule], declarations: [decoratedCmp] })
-        ], DynamicHtmlModule);
+        var cmpClass = /** @class */ (function () {
+            function DynamicComponent() {
+            }
+            return DynamicComponent;
+        }());
+        var decoratedCmp = core_1.Component(metadata)(cmpClass);
+        var DynamicHtmlModule = /** @class */ (function () {
+            function DynamicHtmlModule() {
+            }
+            DynamicHtmlModule = __decorate([
+                core_1.NgModule({ imports: [common_1.CommonModule, router_1.RouterModule], declarations: [decoratedCmp] })
+            ], DynamicHtmlModule);
+            return DynamicHtmlModule;
+        }());
         return compiler.compileModuleAndAllComponentsAsync(DynamicHtmlModule)
-            .then((moduleWithComponentFactory) => {
-            return moduleWithComponentFactory.componentFactories.find(x => x.componentType === decoratedCmp);
+            .then(function (moduleWithComponentFactory) {
+            return moduleWithComponentFactory.componentFactories.find(function (x) { return x.componentType === decoratedCmp; });
         });
     }
     exports_1("createComponentFactory", createComponentFactory);
@@ -39,47 +45,49 @@ System.register(["@angular/core", "@angular/router", "@angular/common"], functio
             }
         ],
         execute: function () {
-            HtmlOutlet = class HtmlOutlet {
-                constructor(vcRef, compiler) {
+            HtmlOutlet = /** @class */ (function () {
+                function HtmlOutlet(vcRef, compiler) {
                     this.vcRef = vcRef;
                     this.compiler = compiler;
                 }
-                ngOnChanges() {
-                    const html = this.html;
+                HtmlOutlet.prototype.ngOnChanges = function () {
+                    var _this = this;
+                    var html = this.html;
                     if (!html)
                         return;
                     if (this.cmpRef) {
                         this.cmpRef.destroy();
                     }
-                    const compMetadata = new core_1.Component({
+                    var compMetadata = new core_1.Component({
                         selector: 'dynamic-html',
                         template: this.html,
                     });
                     createComponentFactory(this.compiler, compMetadata)
-                        .then(factory => {
-                        const injector = core_1.ReflectiveInjector.fromResolvedProviders([], this.vcRef.parentInjector);
-                        this.cmpRef = this.vcRef.createComponent(factory, 0, injector, []);
-                        this.cmpRef.instance['item'] = this.item;
+                        .then(function (factory) {
+                        var injector = core_1.ReflectiveInjector.fromResolvedProviders([], _this.vcRef.parentInjector);
+                        _this.cmpRef = _this.vcRef.createComponent(factory, 0, injector, []);
+                        _this.cmpRef.instance['item'] = _this.item;
                     });
-                }
-                ngOnDestroy() {
+                };
+                HtmlOutlet.prototype.ngOnDestroy = function () {
                     if (this.cmpRef) {
                         this.cmpRef.destroy();
                     }
-                }
-            };
-            __decorate([
-                core_1.Input('html'),
-                __metadata("design:type", String)
-            ], HtmlOutlet.prototype, "html", void 0);
-            __decorate([
-                core_1.Input('item'),
-                __metadata("design:type", Object)
-            ], HtmlOutlet.prototype, "item", void 0);
-            HtmlOutlet = __decorate([
-                core_1.Directive({ selector: 'html-outlet' }),
-                __metadata("design:paramtypes", [core_1.ViewContainerRef, core_1.Compiler])
-            ], HtmlOutlet);
+                };
+                __decorate([
+                    core_1.Input('html'),
+                    __metadata("design:type", String)
+                ], HtmlOutlet.prototype, "html", void 0);
+                __decorate([
+                    core_1.Input('item'),
+                    __metadata("design:type", Object)
+                ], HtmlOutlet.prototype, "item", void 0);
+                HtmlOutlet = __decorate([
+                    core_1.Directive({ selector: 'html-outlet' }),
+                    __metadata("design:paramtypes", [core_1.ViewContainerRef, core_1.Compiler])
+                ], HtmlOutlet);
+                return HtmlOutlet;
+            }());
             exports_1("HtmlOutlet", HtmlOutlet);
         }
     };

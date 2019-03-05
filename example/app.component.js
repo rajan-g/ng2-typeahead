@@ -20,9 +20,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         execute: function () {/*
              * @author RAJAN G
              */
-            AppComponent = class AppComponent {
+            AppComponent = /** @class */ (function () {
                 //import { AutoComplete, IView } from '../directives/autocomplete';
-                constructor() {
+                function AppComponent() {
+                    var _this = this;
                     this.stateListData = [{ "name": "Alabama", "abbreviation": "AL" }, { "name": "Alaska", "abbreviation": "AK" }, { "name": "AmericanSamoa", "abbreviation": "AS" }, { "name": "Arizona", "abbreviation": "AZ" }, { "name": "Arkansas", "abbreviation": "AR" }, { "name": "California", "abbreviation": "CA" }, { "name": "Colorado", "abbreviation": "CO" }, { "name": "Connecticut", "abbreviation": "CT" }, { "name": "Delaware", "abbreviation": "DE" }, { "name": "DistrictOfColumbia", "abbreviation": "DC" }, { "name": "FederatedStatesOfMicronesia", "abbreviation": "FM" }, { "name": "Florida", "abbreviation": "FL" }, { "name": "Georgia", "abbreviation": "GA" }, { "name": "Guam", "abbreviation": "GU" }, { "name": "Hawaii", "abbreviation": "HI" }, { "name": "Idaho", "abbreviation": "ID" }, { "name": "Illinois", "abbreviation": "IL" }, { "name": "Indiana", "abbreviation": "IN" }, { "name": "Iowa", "abbreviation": "IA" }, { "name": "Kansas", "abbreviation": "KS" }, { "name": "Kentucky", "abbreviation": "KY" }, { "name": "Louisiana", "abbreviation": "LA" }, { "name": "Maine", "abbreviation": "ME" }, { "name": "MarshallIslands", "abbreviation": "MH" }, { "name": "Maryland", "abbreviation": "MD" }, { "name": "Massachusetts", "abbreviation": "MA" }, { "name": "Michigan", "abbreviation": "MI" }, { "name": "Minnesota", "abbreviation": "MN" }, { "name": "Mississippi", "abbreviation": "MS" }, { "name": "Missouri", "abbreviation": "MO" }, { "name": "Montana", "abbreviation": "MT" }, { "name": "Nebraska", "abbreviation": "NE" }, { "name": "Nevada", "abbreviation": "NV" }, { "name": "NewHampshire", "abbreviation": "NH" }, { "name": "NewJersey", "abbreviation": "NJ" }, { "name": "NewMexico", "abbreviation": "NM" }, { "name": "NewYork", "abbreviation": "NY" }, { "name": "NorthCarolina", "abbreviation": "NC" }, { "name": "NorthDakota", "abbreviation": "ND" }, { "name": "NorthernMarianaIslands", "abbreviation": "MP" }, { "name": "Ohio", "abbreviation": "OH" }, { "name": "Oklahoma", "abbreviation": "OK" }, { "name": "Oregon", "abbreviation": "OR" }, { "name": "Palau", "abbreviation": "PW" }, { "name": "Pennsylvania", "abbreviation": "PA" }, { "name": "PuertoRico", "abbreviation": "PR" }, { "name": "RhodeIsland", "abbreviation": "RI" }, { "name": "SouthCarolina", "abbreviation": "SC" }, { "name": "SouthDakota", "abbreviation": "SD" }, { "name": "Tennessee", "abbreviation": "TN" }, { "name": "Texas", "abbreviation": "TX" }, { "name": "Utah", "abbreviation": "UT" }, { "name": "Vermont", "abbreviation": "VT" }, { "name": "VirginIslands", "abbreviation": "VI" }, { "name": "Virginia", "abbreviation": "VA" }, { "name": "Washington", "abbreviation": "WA" }, { "name": "WestVirginia", "abbreviation": "WV" }, { "name": "Wisconsin", "abbreviation": "WI" }, { "name": "Wyoming", "abbreviation": "WY" }];
                     this.stateList = { "name": "Alabama", "abbreviation": "AL" };
                     this.typeAheadSetup = {
@@ -34,34 +35,25 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         // valueProperty: 'abbreviation',
                         searchProperty: 'name',
                         isMultiselect: false,
-                        onSelect: (selectedItem) => { console.log(selectedItem); },
-                        asynchDataCall: (value, cb) => {
-                            let result = this.stateListData.filter((item) => {
+                        onSelect: function (selectedItem) { console.log(selectedItem); },
+                        asynchDataCall: function (value, cb) {
+                            var result = _this.stateListData.filter(function (item) {
                                 return item.name.indexOf(value) !== -1;
                             });
-                            setTimeout(() => {
+                            setTimeout(function () {
                                 cb(result);
                             }, 200);
                         },
                     };
                 }
-            };
-            AppComponent = __decorate([
-                core_1.Component({
-                    selector: 'my-app',
-                    template: `
-    <div style="width:300px;padding:10px"> 
-    <typeahead  [(ngModel)]="stateList" [typeAheadSetup]="typeAheadSetup"></typeahead>
-    <div></div>
-    </div>
-    <!--<html-outlet [html]="model.template"></html-outlet>
-    <html-outlet [html]="model.template"></html-outlet>
-    <html-outlet [html]="model.template"></html-outlet>
-    <html-outlet [html]="model.template"></html-outlet>
-    <typehead [(ngModel)]="stateList" [typeAheadSetup]="typeAheadSetup"></typehead>-->
-`,
-                })
-            ], AppComponent);
+                AppComponent = __decorate([
+                    core_1.Component({
+                        selector: 'my-app',
+                        template: "\n    <div style=\"width:300px;padding:10px\"> \n    <typeahead  [(ngModel)]=\"stateList\" [typeAheadSetup]=\"typeAheadSetup\"></typeahead>\n    <div></div>\n    </div>\n    <!--<html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <html-outlet [html]=\"model.template\"></html-outlet>\n    <typehead [(ngModel)]=\"stateList\" [typeAheadSetup]=\"typeAheadSetup\"></typehead>-->\n",
+                    })
+                ], AppComponent);
+                return AppComponent;
+            }());
             exports_1("AppComponent", AppComponent);
         }
     };

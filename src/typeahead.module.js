@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, platform_browser_1, forms_1, PropertyHandler_1, autocomplete_1, html_outlet_1, TypeAheadModule, TypeAheadModule_1;
+    var core_1, platform_browser_1, forms_1, PropertyHandler_1, autocomplete_1, html_outlet_1, TypeAheadModule;
     return {
         setters: [
             function (core_1_1) {
@@ -30,17 +30,22 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
             }
         ],
         execute: function () {
-            TypeAheadModule = TypeAheadModule_1 = class TypeAheadModule {
-                static forRoot() { return { ngModule: TypeAheadModule_1, providers: [PropertyHandler_1.PropertyHandler] }; }
-            };
-            TypeAheadModule = TypeAheadModule_1 = __decorate([
-                core_1.NgModule({
-                    imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
-                    declarations: [autocomplete_1.AutoComplete, html_outlet_1.HtmlOutlet],
-                    exports: [autocomplete_1.AutoComplete, html_outlet_1.HtmlOutlet],
-                    providers: [PropertyHandler_1.PropertyHandler]
-                })
-            ], TypeAheadModule);
+            TypeAheadModule = /** @class */ (function () {
+                function TypeAheadModule() {
+                }
+                TypeAheadModule_1 = TypeAheadModule;
+                TypeAheadModule.forRoot = function () { return { ngModule: TypeAheadModule_1, providers: [PropertyHandler_1.PropertyHandler] }; };
+                TypeAheadModule = TypeAheadModule_1 = __decorate([
+                    core_1.NgModule({
+                        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
+                        declarations: [autocomplete_1.AutoComplete, html_outlet_1.HtmlOutlet],
+                        exports: [autocomplete_1.AutoComplete, html_outlet_1.HtmlOutlet],
+                        providers: [PropertyHandler_1.PropertyHandler]
+                    })
+                ], TypeAheadModule);
+                return TypeAheadModule;
+                var TypeAheadModule_1;
+            }());
             exports_1("TypeAheadModule", TypeAheadModule);
         }
     };

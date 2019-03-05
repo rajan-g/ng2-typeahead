@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "system",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -11,7 +11,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
       "./node_modules/@types/"
-    ]
+    ],
+    "lib" : ["es2015", "es2015.iterable", "dom"]
   },
   "compileOnSave": true,  
   "exclude": [

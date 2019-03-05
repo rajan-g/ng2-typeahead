@@ -1,6 +1,6 @@
 {
   "name": "ng2-bootstrap-typeahead",
-  "version": "2.0.4",
+  "version": "2.0.3",
   "description": "ng2-bootstrap-typeahead is angular2 ng2-bootstrap-typeahead module. It is support static and dynamic data for auto complete",
   "main": "index.js",
   "scripts": {
@@ -15,24 +15,20 @@
     "type": "git",
     "url": "git+https://github.com/rajan-g/ng2-typeahead.git"
   },
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@angular/common": "~2.1.1",
-    "@angular/compiler": "~2.1.1",
-    "@angular/core": "~2.1.1",
-    "@angular/forms": "~2.1.1",
-    "@angular/http": "~2.1.1",
-    "@angular/platform-browser": "~2.1.1",
-    "@angular/platform-browser-dynamic": "~2.1.1",
-    "@angular/router": "~3.1.1",
-    "@angular/upgrade": "~2.1.1",
-    "angular-in-memory-web-api": "~0.1.13",
+    "@angular/common": "4.0.2",
+    "@angular/compiler": "4.0.2",
+    "@angular/core": "4.0.2",
+    "@angular/forms": "4.0.2",
+    "@angular/http": "4.0.2",
+    "@angular/platform-browser": "4.0.2",
+    "@angular/platform-browser-dynamic": "4.0.2",
+    "@angular/router": "4.0.2",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
-    "rxjs": "5.0.0-beta.12",
+    "rxjs": "5.5.2",
     "systemjs": "0.19.39",
     "zone.js": "^0.6.25",
     "@types/core-js": "^0.9.34",

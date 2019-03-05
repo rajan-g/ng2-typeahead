@@ -27,15 +27,18 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
             }
         ],
         execute: function () {
-            AutoCompleteExampleModule = class AutoCompleteExampleModule {
-            };
-            AutoCompleteExampleModule = __decorate([
-                core_1.NgModule({
-                    imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, typeahead_module_1.TypeAheadModule],
-                    declarations: [app_component_1.AppComponent],
-                    bootstrap: [app_component_1.AppComponent]
-                })
-            ], AutoCompleteExampleModule);
+            AutoCompleteExampleModule = /** @class */ (function () {
+                function AutoCompleteExampleModule() {
+                }
+                AutoCompleteExampleModule = __decorate([
+                    core_1.NgModule({
+                        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, typeahead_module_1.TypeAheadModule],
+                        declarations: [app_component_1.AppComponent],
+                        bootstrap: [app_component_1.AppComponent]
+                    })
+                ], AutoCompleteExampleModule);
+                return AutoCompleteExampleModule;
+            }());
             exports_1("AutoCompleteExampleModule", AutoCompleteExampleModule);
         }
     };
