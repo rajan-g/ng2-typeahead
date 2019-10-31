@@ -6,8 +6,8 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var __moduleName = context_1 && context_1.id;
     var core_1, platform_browser_1, forms_1, PropertyHandler_1, autocomplete_1, html_outlet_1, TypeAheadModule;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (core_1_1) {
@@ -35,6 +35,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
                 }
                 TypeAheadModule_1 = TypeAheadModule;
                 TypeAheadModule.forRoot = function () { return { ngModule: TypeAheadModule_1, providers: [PropertyHandler_1.PropertyHandler] }; };
+                var TypeAheadModule_1;
                 TypeAheadModule = TypeAheadModule_1 = __decorate([
                     core_1.NgModule({
                         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
@@ -44,7 +45,6 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
                     })
                 ], TypeAheadModule);
                 return TypeAheadModule;
-                var TypeAheadModule_1;
             }());
             exports_1("TypeAheadModule", TypeAheadModule);
         }

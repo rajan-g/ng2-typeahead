@@ -1,15 +1,13 @@
 {
   "name": "ng2-bootstrap-typeahead",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "ng2-bootstrap-typeahead is angular2 ng2-bootstrap-typeahead module. It is support static and dynamic data for auto complete",
   "main": "index.js",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "lite": "lite-server",
-    "typings": "typings",
-    "postinstall": "typings install"
+    "lite": "lite-server"
   },
   "repository": {
     "type": "git",
@@ -35,7 +33,7 @@
     "@types/node": "^6.0.45",
     "concurrently": "^3.0.0",
     "lite-server": "^2.2.2",
-    "typescript": "^2.0.3"
+    "typescript": "3.3.1"
   },
   "keywords": [
     "ng2-typeahead",

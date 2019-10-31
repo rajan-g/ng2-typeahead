@@ -1,7 +1,7 @@
 System.register(["@angular/platform-browser-dynamic", "./autocomplete-example-module"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var platform_browser_dynamic_1, autocomplete_example_module_1, platform;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (platform_browser_dynamic_1_1) {

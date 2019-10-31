@@ -9,6 +9,7 @@ System.register(["@angular/core", "@angular/router", "@angular/common"], functio
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var core_1, router_1, common_1, HtmlOutlet;
     var __moduleName = context_1 && context_1.id;
     function createComponentFactory(compiler, metadata) {
         var cmpClass = /** @class */ (function () {
@@ -31,7 +32,6 @@ System.register(["@angular/core", "@angular/router", "@angular/common"], functio
         });
     }
     exports_1("createComponentFactory", createComponentFactory);
-    var core_1, router_1, common_1, HtmlOutlet;
     return {
         setters: [
             function (core_1_1) {
